@@ -5,7 +5,8 @@ import array
 
 def hexlify(_bytes, swap=True):
     a = array.array('b', _bytes)
-    a.byteswap()
+    if swap:
+        a.byteswap()
     return binascii.hexlify(a.tobytes()).decode('utf-8')
 
 MAC = '442a60ef7939'
@@ -29,4 +30,3 @@ for i in itertools.count():
 
 if not mac_addr:
     print('No bluetooth device with given mac address found. Is it paired?')
-
