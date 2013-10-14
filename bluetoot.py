@@ -3,10 +3,10 @@ import itertools
 import binascii
 import array
 
-def hexlify(_bytes, swap=True):
+def hexlify(_bytes, reverse=True):
     a = array.array('b', _bytes)
     if swap:
-        a.byteswap()
+        a.reverse()
     return binascii.hexlify(a.tobytes()).decode('utf-8')
 
 MAC = '442a60ef7939'
